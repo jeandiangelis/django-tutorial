@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from .models import Question
+from pprint import pprint
 
 
 def index(request):
@@ -20,4 +21,4 @@ def results(request, question_id):
 
 
 def vote(request, question_id):
-    return HttpResponse("You're voting on question %s." % question_id)
+    return render(request, 'polls/vote.html', {'data': request})
